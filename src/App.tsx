@@ -17,9 +17,20 @@ import Messages from "./pages/Messages";
 
 const queryClient = new QueryClient();
 
+// Get Supabase URL and anon key from environment variables
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+// Add error handling for missing environment variables
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.error('Missing Supabase environment variables. Please ensure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set.');
+}
+
+// Create Supabase client with error handling
+const supabase = createClient(
+  supabaseUrl || '', // Provide empty string as fallback to prevent runtime error
+  supabaseAnonKey || '' // Provide empty string as fallback to prevent runtime error
+);
 
 const App = () => (
   <SessionContextProvider supabaseClient={supabase}>

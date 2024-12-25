@@ -6,6 +6,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createClient } from '@supabase/supabase-js';
 import { SessionContextProvider } from '@supabase/auth-helpers-react';
 import Index from "./pages/Index";
+import SignIn from "./pages/auth/SignIn";
+import SignUp from "./pages/auth/SignUp";
+import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
+import SearchSitters from "./pages/SearchSitters";
+import SitterProfile from "./pages/SitterProfile";
+import Bookings from "./pages/Bookings";
+import Messages from "./pages/Messages";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +30,14 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/auth/signin" element={<SignIn />} />
+            <Route path="/auth/signup" element={<SignUp />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/search" element={<SearchSitters />} />
+            <Route path="/sitter/:id" element={<SitterProfile />} />
+            <Route path="/bookings" element={<Bookings />} />
+            <Route path="/messages" element={<Messages />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>

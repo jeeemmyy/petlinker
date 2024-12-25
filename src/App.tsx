@@ -14,6 +14,7 @@ import SearchSitters from "./pages/SearchSitters";
 import SitterProfile from "./pages/SitterProfile";
 import Bookings from "./pages/Bookings";
 import Messages from "./pages/Messages";
+import HowItWorks from "./pages/HowItWorks";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const App = () => (
             <Route path="/sitter/:id" element={<SitterProfile />} />
             <Route path="/bookings" element={<Bookings />} />
             <Route path="/messages" element={<Messages />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
